@@ -2,6 +2,7 @@ package pt.brunojesus.caixa;
 
 import java.util.Scanner;
 
+import pt.brunojesus.caixa.errors.NotEnoughHeightException;
 import pt.brunojesus.caixa.errors.NotEnoughWidthException;
 
 public class Main {
@@ -15,8 +16,6 @@ public class Main {
 		System.out.println("Altura: ");
 		int height = in.nextInt();
 		
-		
-		
 		Caixa caixa = new Caixa(width, height, '-');
 		
 		try {
@@ -24,6 +23,8 @@ public class Main {
 		} catch (NotEnoughWidthException e) {
 			System.out.println("Ocorreu um erro ao desenhar a caixa! Largura tem que ser superior a 3");
 			//System.out.println(e.getMessage());
+		} catch (NotEnoughHeightException e) {
+			System.out.println("Ocorreu um erro ao desenhar a caixa! Altura tem que ser superior a 3");
 		}
 		
 	}
